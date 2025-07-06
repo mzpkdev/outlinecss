@@ -1,0 +1,11 @@
+@use "sass:math";
+@use "sass:string";
+@use "globals";
+@use "../mixins";
+
+
+:root {
+  @include mixins.token(globals.$spacing) using($token-name, $token-value) {
+    --spacing__#{$token-name}: #{$token-value};
+  }
+}

@@ -1,0 +1,12 @@
+@use "globals";
+@use "../mixins";
+
+
+:root {
+  --roundness__none: 0;
+  --roundness__full: 9999px;
+
+  @include mixins.token(globals.$spacing) using($token-name, $token-value) {
+    --roundness__#{$token-name}: #{$token-value};
+  }
+}

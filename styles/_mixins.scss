@@ -1,0 +1,15 @@
+@use "sass:meta";
+@use "sass:map";
+
+
+@mixin token($tokens) {
+  @each $token-name, $token-value in $tokens {
+    @if meta.type-of($token-value) == map {
+      @each $subtoken-name, $subtoken-value in $token-value {
+        @content(#{$token-name}-#{$subtoken-name}, $subtoken-value)
+      }
+    } @else {
+      @content($token-name, $token-value)
+    }
+  }
+}

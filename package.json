@@ -1,0 +1,65 @@
+{
+  "name": "outlinecss",
+  "description": "A headless, responsive, and composable CSS framework designed for easy customization.",
+  "version": "0.0.0",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "bin": {
+    "outlinecss": "bin/run"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc --build && npx outlinecss build --output ./dist/outline.css --entry null --tokens null",
+    "build:library": "echo 0",
+    "build:website": "cp -r website website-dist",
+    "clean": "tsc --build --clean",
+    "preprepare": "ts-patch install",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "cssnano": "^7.0.6",
+    "minimist": "^1.2.8",
+    "outlinecss": ".",
+    "postcss": "^8.5.1",
+    "postcss-font-magician": "^4.0.0",
+    "postcss-preset-env": "^10.1.3",
+    "sass": "^1.84.0"
+  },
+  "devDependencies": {
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^22.4.0",
+    "ts-patch": "^3.2.1",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4",
+    "typescript-transform-paths": "^3.4.11"
+  },
+  "author": "Mateusz Pietrzak",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mzpkdev/outlinecss.git"
+  },
+  "files": [
+    "bin/",
+    "lib/**/*.js",
+    "lib/**/*.d.ts",
+    "lib/**/*.d.ts.map",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "css",
+    "css-framework",
+    "headless",
+    "responsive",
+    "composable",
+    "customizable",
+    "ui-primitives",
+    "utility-classes",
+    "css-utilities",
+    "unstyled-components",
+    "css-architecture",
+    "design-system",
+    "modular-css"
+  ]
+}

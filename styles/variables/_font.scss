@@ -1,0 +1,17 @@
+@use "sass:math";
+@use "sass:string";
+@use "globals";
+@use "../mixins";
+
+
+:root {
+  --font__ratio: 1.618;
+
+  @include mixins.token(globals.$font-family) using($token-name, $token-value) {
+    --font-family__#{$token-name}: #{$token-value};
+  }
+
+  @include mixins.token(globals.$font-size) using($token-name, $token-value) {
+    --font-size__#{$token-name}: #{$token-value};
+  }
+}

@@ -1,0 +1,11 @@
+@use "globals";
+@use "../mixins";
+
+
+:root {
+  --z-index__auto: auto;
+
+  @include mixins.token(globals.$z-index) using($token-name, $token-value) {
+    --z-index__#{$token-name}: #{$token-value};
+  }
+}

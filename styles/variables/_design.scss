@@ -1,0 +1,23 @@
+@use "sass:meta";
+@use "sass:map";
+@use "globals";
+@use "../mixins";
+
+
+:root {
+  @each $kind-name, $kind-value in globals.$design {
+    @if meta.type-of($kind-value) == map {
+      @each $token-name, $token-value in $kind-value {
+        @if meta.type-of($token-value) == map {
+          @each $subtoken-name, $subtoken-value in $token-value {
+            --#{$kind-name}__#{$token-name}-#{$subtoken-name}: #{$subtoken-value};
+          }
+        } @else {
+          --#{$kind-name}__#{$token-name}: #{$token-value};
+        }
+      }
+    } @else {
+      --#{$kind-name}: #{$kind-value};
+    }
+  }
+}

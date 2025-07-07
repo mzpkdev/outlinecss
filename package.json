@@ -1,15 +1,15 @@
 {
   "name": "outlinecss",
   "description": "A headless, responsive, and composable CSS framework designed for easy customization.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "bin": {
     "outlinecss": "bin/run"
   },
   "scripts": {
-    "build": "npm run clean && tsc --build && npx outlinecss build --output ./dist/outline.css --entry null --tokens null",
-    "build:library": "echo 0",
+    "build": "npm run build:library && npm run build:website",
+    "build:library": "npm run clean && tsc --build && npx outlinecss build --output ./dist/outline.css --entry null --tokens null",
     "build:website": "cp -r website website-dist",
     "clean": "tsc --build --clean",
     "preprepare": "ts-patch install",

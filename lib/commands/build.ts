@@ -13,9 +13,6 @@ export type BuildOptions = {
 }
 
 export default async function build(options: BuildOptions): Promise<number> {
-    if (options.output && fs.existsSync(path.dirname(options.output))) {
-        fs.rmSync(path.dirname(options.output), { recursive: true })
-    }
     fs.mkdirSync(directories.temp, { recursive: true })
     fs.writeFileSync(
         path.join(directories.temp, "_globals.scss"),

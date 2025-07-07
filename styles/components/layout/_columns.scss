@@ -1,0 +1,18 @@
+.columns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: var(--spacing__md);
+
+  .column {
+    flex: 1 1 auto;
+  }
+
+  @for $i from 2 through 12 {
+    @for $j from 1 through $i - 1 {
+      & > .column\:#{$j}\/#{$i} {
+        flex: 1 0 calc($j / $i * 100%);
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.toggle {
+  --ui__toggle__scale: 1.5;
+  --ui__toggle__spacing-x: var(--spacing__md);
+  --ui__toggle__spacing-y: var(--spacing__xs);
+  --ui__toggle__text-color: var(--color__current);
+  --ui__toggle__background: transparent;
+  --ui__toggle__border-color: var(--color__current);
+  --ui__toggle__roundness: var(--roundness);
+  --ui__toggle__box-shadow: var(--shadow__none);
+  --ui__toggle__tick-color: var(--color__current);
+  --ui__toggle__box-color: transparent;
+
+  padding: var(--ui__toggle__spacing-y) var(--ui__toggle__spacing-x);
+  color: var(--ui__toggle__text-color);
+  background: var(--ui__toggle__background);
+  border-radius: var(--ui__toggle__roundness);
+
+  & > label::before {
+    height: calc(1em * var(--ui__toggle__scale));
+    margin-right: var(--ui__toggle__spacing-x);
+    background: var(--ui__toggle__box-color);
+    border-color: var(--ui__toggle__border-color);
+    border-radius: var(--ui__toggle__roundness);
+    box-shadow: var(--ui__toggle__box-shadow);
+  }
+
+  & > label::after {
+    left: calc(-100% + 1em * var(--ui__toggle__scale));
+    width: calc(1em * var(--ui__toggle__scale));
+    height: calc(1em * var(--ui__toggle__scale));
+    background: var(--ui__toggle__tick-color);
+  }
+}
+
+.toggle {
+  box-sizing: border-box;
+  white-space: nowrap;
+  position: relative;
+  transition-property: background;
+  transition-duration: var(--transition__duration);
+  transition-timing-function: var(--transition__easing);
+
+  & > input {
+    appearance: none;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: inherit;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  & > label {
+    position: relative;
+  }
+
+  & > label::before {
+    content: "";
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px; // Font Metrics hack
+    border-style: solid;
+    border-width: 1px;
+    pointer-events: none;
+  }
+
+  & > label::after {
+    content: "";
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin-top: -3px; // Font Metrics hack
+    transition-property: transform, left;
+    transition-duration: var(--transition__duration);
+    transition-timing-function: var(--transition__easing);
+  }
+}
+
+// Toggle
+.toggle {
+  & > label::before {
+    width: calc(2em * var(--ui__toggle__scale));
+  }
+
+  & > label::after {
+    border-radius: var(--ui__toggle__roundness);
+    transform: translateX(0) scale(0.75);
+
+  }
+
+  & > input:checked + label::after {
+    transform: translateX(100%) scale(0.75);
+  }
+}

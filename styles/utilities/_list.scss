@@ -1,0 +1,6 @@
+$list-type: (disc, circle, square, decimal);
+@each $token-name in $list-type {
+  .list\:#{$token-name} {
+    list-style-type: $token-name !important;
+  }
+}

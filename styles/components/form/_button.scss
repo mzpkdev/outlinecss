@@ -1,0 +1,38 @@
+.button {
+    --ui__button__spacing-x: var(--spacing__md);
+    --ui__button__spacing-y: var(--spacing__xs);
+    --ui__button__text-color: var(--color__current);
+    --ui__button__background: transparent;
+    --ui__button__border-color: var(--color__current);
+    --ui__button__roundness: var(--roundness);
+    --ui__button__shadow: var(--shadow__none);
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    padding: var(--ui__button__spacing-y) var(--ui__button__spacing-x);
+    color: var(--ui__button__text-color);
+    background: var(--ui__button__background);
+    border-color: var(--ui__button__border-color);
+    border-width: 1px;
+    border-style: none;
+    border-radius: var(--ui__button__roundness);
+    box-shadow: var(--ui__button__shadow);
+    cursor: pointer;
+    transition-property: color, background, background-color, border-color, box-shadow;
+    transition-duration: var(--transition__duration);
+    transition-timing-function: var(--transition__easing);
+
+    &:focus {
+        outline-color: var(--color__current);
+    }
+
+    &:is(a) {
+        text-decoration: none;
+    }
+}

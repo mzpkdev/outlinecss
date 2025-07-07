@@ -1,0 +1,20 @@
+$justify-content-type-regular: (center, stretch, baseline, normal);
+@each $token-name in $justify-content-type-regular {
+  .justify\:#{$token-name} {
+    justify-content: $token-name;
+  }
+}
+
+$justify-content-type--flex: (start, end);
+@each $token-name in $justify-content-type--flex {
+  .justify\:#{$token-name} {
+    justify-content: flex-#{$token-name};
+  }
+}
+
+$justify-content-type--space: (between, around, evenly);
+@each $token-name in $justify-content-type--space {
+  .justify\:#{$token-name} {
+    justify-content: space-#{$token-name};
+  }
+}

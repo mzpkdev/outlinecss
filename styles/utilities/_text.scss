@@ -1,0 +1,86 @@
+@use "globals";
+@use "sass:list";
+@use "sass:map";
+@use "../mixins";
+
+
+@include mixins.token(globals.$color) using($token-name, $token-value) {
+  .text\:#{$token-name} {
+    color: var(--color__#{$token-name}) !important;
+  }
+}
+
+@include mixins.token(map.get(globals.$design, "color")) using($token-name, $token-value) {
+  .text\:#{$token-name} {
+    color: var(--color__#{$token-name}) !important;
+  }
+}
+
+@include mixins.token(globals.$font-size) using($token-name, $token-value) {
+  .text\:#{$token-name} {
+    font-size: var(--font-size__#{$token-name}) !important;
+  }
+}
+
+
+$font-family-type: ("display", "serif", "sans", "monospace");
+@each $token-name in $font-family-type {
+  @font-face {
+    font-family: "#{$token-name}";
+  }
+}
+@each $token-name in $font-family-type {
+  .text\:#{$token-name} {
+    font-family: var(--font-family__#{$token-name}) !important;
+  }
+}
+
+$font-weight-type: ("thin", "extralight", "light", "normal", "medium", "semibold", "bold", "extrabold", "black");
+@for $i from 1 through list.length($font-weight-type) {
+  $token-name: list.nth($font-weight-type, $i);
+  $token-value: $i * 100;
+  .text\:#{$token-name} {
+    font-weight: $token-value !important;
+  }
+}
+
+$text-align-type: (left, right, center, justify, start, end);
+@each $token-name in $text-align-type {
+  .text\:#{$token-name} {
+    text-align: $token-name !important;
+  }
+}
+
+$text-transform-type: (none, capitalize, uppercase, lowercase, full-width, full-size-kana, math-auto);
+@each $token-name in $text-transform-type {
+  .text\:#{$token-name} {
+    text-transform: $token-name !important;
+  }
+}
+
+$text-wrap-type: (wrap, nowrap, balance, pretty);
+@each $token-name in $text-wrap-type {
+  .text\:#{$token-name} {
+    text-wrap: $token-name !important;
+  }
+}
+
+$text-decoration-type: (none, underline, overline, line-through);
+@each $token-name in $text-decoration-type {
+  .text\:#{$token-name} {
+    text-decoration: $token-name !important;
+  }
+}
+
+$text-decoration-style: (solid, double, dotted, dashed, wavy);
+@each $token-name in $text-decoration-style {
+  .text-decoration\:#{$token-name} {
+    text-decoration-style: $token-name !important;
+  }
+}
+
+@include mixins.token(globals.$color) using($token-name, $token-value) {
+  .text-decoration\:#{$token-name} {
+    text-decoration-color: var(--color__#{$token-name}) !important;
+  }
+}

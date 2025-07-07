@@ -1,0 +1,10 @@
+@use "globals";
+@use "../mixins";
+
+
+@include mixins.token(globals.$roundness) using($token-name, $token-value) {
+  .rounded\:#{$token-name} {
+    border-radius: var(--roundness__#{$token-name}) !important;
+  }
+}
+

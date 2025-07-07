@@ -1,0 +1,76 @@
+.dropdown {
+  --ui__dropdown__spacing-x: var(--spacing__md);
+  --ui__dropdown__spacing-y: var(--spacing__xs);
+  --ui__dropdown__text-color: var(--color__current);
+  --ui__dropdown__background: var(--color__background);
+  --ui__dropdown__border-color: var(--color__current);
+  --ui__dropdown__roundness: var(--roundness);
+  --ui__dropdown__shadow: var(--shadow__none);
+  --ui__dropdown__transition--duration: 125ms;
+  --ui__dropdown__transition--easing: var(--easing__out-cubic);
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  & > input[type="checkbox"] {
+    appearance: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: var(--z-index__-10);
+
+    &:checked {
+      position: fixed;
+      z-index: var(--z-index__30);
+      cursor: default;
+    }
+  }
+
+  & > input[type="checkbox"]:checked + .dropdown-body {
+    opacity: 1;
+    grid-template-rows: 1fr;
+    pointer-events: auto;
+  }
+
+  & .dropdown-body {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    width: max-content;
+    padding: var(--ui__dropdown__spacing-y) var(--ui__dropdown__spacing-x);
+    background: var(--ui__dropdown__background);
+    border: 1px solid var(--ui__dropdown__border-color);
+    border-radius: var(--ui__dropdown__roundness);
+    box-shadow: var(--ui__dropdown__shadow);
+    opacity: 0;
+    z-index: var(--z-index__50);
+    transition-property: opacity, grid-template-rows;
+    transition-duration: var(--ui__dropdown__transition--duration);
+    transition-timing-function: var(--ui__dropdown__transition--easing);
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  & .dropdown-content {
+    overflow: hidden;
+  }
+
+  @media only screen and (max-width: 768px) {
+    & .dropdown-body {
+      position: static;
+      padding-top: 0;
+      padding-bottom: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+  }
+}

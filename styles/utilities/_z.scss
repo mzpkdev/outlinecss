@@ -1,0 +1,9 @@
+@use "sass:list";
+@use "globals";
+@use "../mixins";
+
+@include mixins.token(globals.$z-index) using($token-name, $token-value) {
+  .z\:#{$token-name} {
+    z-index: var(#{--z-index__#{$token-name}}) !important;
+  }
+}

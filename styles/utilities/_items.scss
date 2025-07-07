@@ -1,0 +1,13 @@
+$align-items-type--regular: (center, baseline, stretch);
+@each $token-name in $align-items-type--regular {
+  .items\:#{$token-name} {
+    align-items: $token-name;
+  }
+}
+
+$align-items-type--flex: (start, end);
+@each $token-name in $align-items-type--flex {
+  .items\:#{$token-name} {
+    align-items: flex-#{$token-name};
+  }
+}

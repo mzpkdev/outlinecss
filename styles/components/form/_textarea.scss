@@ -1,0 +1,161 @@
+.textarea {
+  --ui__textarea__spacing-x: var(--spacing__md);
+  --ui__textarea__spacing-y: var(--spacing__xs);
+  --ui__textarea__text-color: var(--color__current);
+  --ui__textarea__background: transparent;
+  --ui__textarea__border-color: --color__current;
+  --ui__textarea__roundness: var(--roundness);
+  --ui__textarea__shadow: var(--shadow__none);
+  --ui__textarea__grip-color: var(--color__text-400);
+
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  min-width: 192px;
+  max-width: fit-content;
+  height: fit-content;
+  color: var(--ui__textarea__text-color);
+  background: var(--ui__textarea__background);
+  border-color: var(--ui__textarea__border-color);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--ui__textarea__roundness);
+  box-shadow: var(--ui__textarea__shadow);
+  transition-property: border-color;
+  transition-duration: var(--transition--duration);
+  transition-timing-function: var(--transition--easing);
+
+  & > input, & > select {
+    line-height: 1;
+    box-sizing: border-box;
+    position: relative;
+    font-family: inherit;
+    font-size: inherit;
+    width: 0;
+    min-width: 100%;
+    margin: 0;
+    padding: var(--ui__textarea__spacing-y) var(--ui__textarea__spacing-x);
+    color: var(--ui__textarea__text-color);
+    background: transparent;
+    border: none;
+
+    &::-webkit-input-placeholder {
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: 100%;
+      color: var(--color__text-400);
+    }
+
+    &:focus {
+      outline-color: var(--color__current);
+    }
+  }
+
+  & > textarea, & > div[contenteditable] {
+    flex: 1 1 auto;
+    display: block;
+    width: 0;
+    min-height: 64px;
+    margin: 0;
+    padding: var(--ui__textarea__spacing-y) var(--ui__textarea__spacing-x);
+  }
+
+
+  & > textarea {
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+    height: auto;
+    max-height: 256px;
+    color: inherit;
+    background: none;
+    border: none;
+
+    &::-webkit-input-placeholder {
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: 100%;
+      color: var(--color__text-400);
+    }
+
+    &:focus {
+      outline-color: var(--color__current);
+    }
+  }
+
+  & > div[contenteditable] {
+    &:focus {
+      outline-color: var(--color__current);
+    }
+
+    &:empty:before {
+      content: attr(placeholder);
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: 100%;
+      color: var(--color__text-400);
+    }
+  }
+
+  & > select {
+    appearance: none;
+
+    & > option {
+      font-size: 100%;
+      color: var(--color__current);
+      background: var(--ui__textarea__background);
+    }
+  }
+
+  & > label {
+    font-size: 75%;
+    position: absolute;
+    top: -1rem;
+    left: 1.25rem;
+  }
+
+  & > .grip:has(+ textarea), & > textarea + .grip {
+    &::before, &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 12px;
+      height: 12px;
+      background-color: var(--color__background);
+      pointer-events: none;
+    }
+
+    &::after {
+      background-color: var(--ui__textarea__grip-color);
+      mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWdyaXAtaG9yaXpvbnRhbCI+PGNpcmNsZSBjeD0iMTIiIGN5PSI5IiByPSIxIi8+PGNpcmNsZSBjeD0iMTkiIGN5PSI5IiByPSIxIi8+PGNpcmNsZSBjeD0iNSIgY3k9IjkiIHI9IjEiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjE1IiByPSIxIi8+PGNpcmNsZSBjeD0iMTkiIGN5PSIxNSIgcj0iMSIvPjxjaXJjbGUgY3g9IjUiIGN5PSIxNSIgcj0iMSIvPjwvc3ZnPg==") no-repeat 50% 50%;
+      mask-size: cover;
+    }
+  }
+
+  & > .grip + textarea, textarea:has(+.grip) {
+    resize: vertical;
+  }
+
+  &:has(> select)::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: var(--ui__textarea__spacing-x);
+    bottom: 50%;
+    width: 1em;
+    height: 1em;
+    background-color: var(--ui__textarea__grip-color);
+    mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+") no-repeat 50% 50%;
+    mask-size: cover;
+    transition-property: transform, color;
+    transition-duration: var(--transition--duration);
+    transition-timing-function: var(--transition--easing);
+    transform: translateY(50%) rotate(0);
+  }
+
+  &:has(> select:focus)::before {
+    transform: translateY(50%) rotate(180deg);
+  }
+}

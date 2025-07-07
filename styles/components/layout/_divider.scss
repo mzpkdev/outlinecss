@@ -1,0 +1,17 @@
+.hdivider, .vdivider {
+  --ui__divider__thickness: 1px;
+  --ui__divider__background: var(--color__current);
+
+  box-sizing: border-box;
+  background: var(--ui__divider__background);
+}
+
+.hdivider {
+  width: 100%;
+  height: var(--ui__divider__thickness);
+}
+
+.vdivider {
+  width: var(--ui__divider__thickness);
+  height: 100%;
+}

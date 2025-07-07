@@ -1,0 +1,104 @@
+.radio {
+  --ui__radio__scale: 1.5;
+  --ui__radio__spacing-x: var(--spacing__md);
+  --ui__radio__spacing-y: var(--spacing__xs);
+  --ui__radio__text-color: var(--color__current);
+  --ui__radio__background: transparent;
+  --ui__radio__border-color: var(--color__current);
+  --ui__radio__roundness: var(--roundness);
+  --ui__radio__box-shadow: var(--shadow__none);
+  --ui__radio__tick-color: var(--color__current);
+  --ui__radio__box-color: transparent;
+
+  padding: var(--ui__radio__spacing-y) var(--ui__radio__spacing-x);
+  color: var(--ui__radio__text-color);
+  background: var(--ui__radio__background);
+  border-radius: var(--ui__radio__roundness);
+
+  & > label::before {
+    height: calc(1em * var(--ui__radio__scale));
+    margin-right: var(--ui__radio__spacing-x);
+    background: var(--ui__radio__box-color);
+    border-color: var(--ui__radio__border-color);
+    border-radius: var(--ui__radio__roundness);
+    box-shadow: var(--ui__radio__box-shadow);
+  }
+
+  & > label::after {
+    left: calc(-100% + 1em * var(--ui__radio__scale));
+    width: calc(1em * var(--ui__radio__scale));
+    height: calc(1em * var(--ui__radio__scale));
+    background: var(--ui__radio__tick-color);
+  }
+}
+
+.radio {
+  box-sizing: border-box;
+  white-space: nowrap;
+  position: relative;
+  transition-property: background;
+  transition-duration: var(--transition__duration);
+  transition-timing-function: var(--transition__easing);
+
+  & > input {
+    appearance: none;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: inherit;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  & > label {
+    position: relative;
+  }
+
+  & > label::before {
+    content: "";
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px; // Font Metrics hack
+    border-style: solid;
+    border-width: 1px;
+    pointer-events: none;
+  }
+
+  & > label::after {
+    content: "";
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin-top: -3px; // Font Metrics hack
+    transition-property: transform, left;
+    transition-duration: var(--transition__duration);
+    transition-timing-function: var(--transition__easing);
+  }
+}
+
+.radio {
+  & > label::before {
+    width: calc(1em * var(--ui__radio__scale));
+  }
+}
+
+// Radio
+.radio {
+  & > label::after {
+    border-radius: var(--ui__radio__roundness);
+    transform: scale(0);
+  }
+
+  & > input:checked + label::before {
+    border-width: 2px;
+  }
+
+  & > input:checked + label::after {
+    transform: scale(0.5);
+  }
+}

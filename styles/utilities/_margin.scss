@@ -1,0 +1,36 @@
+@use "globals";
+@use "../mixins";
+
+
+@include mixins.token(globals.$spacing) using($token-name, $token-value) {
+  .m\:#{$token-name} {
+    margin: var(--spacing__#{$token-name}) !important;
+  }
+
+  .mx\:#{$token-name} {
+    margin-right: var(--spacing__#{$token-name}) !important;
+    margin-left: var(--spacing__#{$token-name}) !important;
+  }
+
+  .my\:#{$token-name} {
+    margin-top: var(--spacing__#{$token-name}) !important;
+    margin-bottom: var(--spacing__#{$token-name}) !important;
+  }
+
+  .mt\:#{$token-name} {
+    margin-top: var(--spacing__#{$token-name}) !important;
+  }
+
+  .mr\:#{$token-name} {
+    margin-right: var(--spacing__#{$token-name}) !important;
+  }
+
+  .mb\:#{$token-name} {
+    margin-bottom: var(--spacing__#{$token-name}) !important;
+  }
+
+  .ml\:#{$token-name} {
+    margin-left: var(--spacing__#{$token-name}) !important;
+  }
+}
+

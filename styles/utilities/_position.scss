@@ -1,0 +1,50 @@
+@use "globals";
+@use "../mixins";
+
+
+$position-type: (static, relative, absolute, fixed, sticky);
+@each $token-name in $position-type {
+  .#{$token-name} {
+    position: $token-name !important;
+  }
+}
+
+.top\:0 {
+  top: 0;
+}
+
+@include mixins.token(globals.$spacing) using($token-name, $token-value) {
+  .top\:#{$token-name} {
+    top: var(--spacing__#{$token-name}) !important;
+  }
+}
+
+.right\:0 {
+  right: 0;
+}
+
+@include mixins.token(globals.$spacing) using($token-name, $token-value) {
+  .right\:#{$token-name} {
+    right: var(--spacing__#{$token-name}) !important;
+  }
+}
+
+.bottom\:0 {
+  bottom: 0;
+}
+
+@include mixins.token(globals.$spacing) using($token-name, $token-value) {
+  .bottom\:#{$token-name} {
+    bottom: var(--spacing__#{$token-name}) !important;
+  }
+}
+
+.left\:0 {
+  left: 0;
+}
+
+@include mixins.token(globals.$spacing) using($token-name, $token-value) {
+  .left\:#{$token-name} {
+    left: var(--spacing__#{$token-name}) !important;
+  }
+}

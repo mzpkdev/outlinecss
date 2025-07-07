@@ -1,0 +1,16 @@
+@use "globals";
+@use "sass:map";
+@use "../mixins";
+
+
+@include mixins.token(globals.$color) using($token-name, $token-value) {
+  .background\:#{$token-name} {
+    background: var(--color__#{$token-name}) !important;
+  }
+}
+
+@include mixins.token(map.get(globals.$design, "color")) using($token-name, $token-value) {
+  .background\:#{$token-name} {
+    background: var(--color__#{$token-name}) !important;
+  }
+}

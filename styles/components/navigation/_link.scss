@@ -1,0 +1,6 @@
+.link, a.link button.link {
+  --ui__link__text-color: var(--color__current);
+
+  text-decoration: none;
+  color: var(--ui__link__text-color);
+}

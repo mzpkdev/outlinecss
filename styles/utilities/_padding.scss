@@ -1,0 +1,36 @@
+@use "globals";
+@use "../mixins";
+
+
+@include mixins.token(globals.$spacing) using($token-name, $token-value) {
+  .p\:#{$token-name} {
+    padding: var(--spacing__#{$token-name}) !important;
+  }
+
+  .px\:#{$token-name} {
+    padding-right: var(--spacing__#{$token-name}) !important;
+    padding-left: var(--spacing__#{$token-name}) !important;
+  }
+
+  .py\:#{$token-name} {
+    padding-top: var(--spacing__#{$token-name}) !important;
+    padding-bottom: var(--spacing__#{$token-name}) !important;
+  }
+
+  .pt\:#{$token-name} {
+    padding-top: var(--spacing__#{$token-name}) !important;
+  }
+
+  .pr\:#{$token-name} {
+    padding-right: var(--spacing__#{$token-name}) !important;
+  }
+
+  .pb\:#{$token-name} {
+    padding-bottom: var(--spacing__#{$token-name}) !important;
+  }
+
+  .pl\:#{$token-name} {
+    padding-left: var(--spacing__#{$token-name}) !important;
+  }
+}
+

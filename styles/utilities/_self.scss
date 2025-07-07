@@ -1,0 +1,10 @@
+@use "globals";
+@use "../mixins";
+
+
+$align-self-type: (auto: auto, start: flex-start, end: flex-end, center: center, stretch: stretch, baseline: baseline);
+@each $token-name, $token-value in $align-self-type {
+  .self\:#{$token-name} {
+    align-self: $token-value !important;
+  }
+}

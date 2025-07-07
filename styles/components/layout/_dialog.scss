@@ -1,0 +1,70 @@
+.dialog {
+  --dialog-backdrop: rgba(0, 0, 0, 0.5);
+  --dialog-background: #fffcf9;
+  --dialog-radius: 3px;
+  --spacing-x: var(--spacing__xl);
+  --spacing-y: var(--spacing__md);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--dialog-backdrop);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999999999;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: var(--easing__out-cubic);
+
+  &:target {
+    visibility: visible;
+    opacity: 1;
+
+    .dialog-body {
+      top: 0;
+    }
+  }
+
+  .dialog-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+  }
+
+  .dialog-body {
+    position: absolute;
+    top: -20%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 768px;
+    height: min-content;
+    margin: auto;
+    padding: var(--spacing-y) var(--spacing-x);
+    background: var(--dialog-background);
+    border-radius: var(--dialog-radius);
+    overflow: auto;
+    transition-property: top;
+    transition-duration: 250ms;
+    transition-timing-function: var(--easing__out-cubic);
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .dialog-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,13 @@
+@use "globals";
+@use "../mixins";
+
+
+.gap\:0 {
+    gap: 0 !important;
+}
+
+@include mixins.token(globals.$spacing) using($token-name, $token-value) {
+    .gap\:#{$token-name} {
+        gap: var(--spacing__#{$token-name}) !important;
+    }
+}

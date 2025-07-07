@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <title><%= title %></title>
+</head>
+<body>
+
+<%- include("navbar") %>
+<div class="container columns">
+  <div class="column:1/4">
+    <div class="menu">
+      <div class="menu-title">Form</div>
+      <a class="menu-item button text" href="/documentation/button/">Button</a>
+      <a class="menu-item button text" href="/documentation/checkbox/">Checkbox</a>
+      <a class="menu-item button text" href="/documentation/input/">Input</a>
+      <a class="menu-item button text" href="/documentation/radio/">Radio</a>
+      <a class="menu-item button text" href="/documentation/select/">Select</a>
+      <a class="menu-item button text" href="/documentation/slider/">Slider</a>
+      <a class="menu-item button text" href="/documentation/textarea/">Textarea</a>
+      <a class="menu-item button text" href="/documentation/toggle/">Toggle</a>
+    </div>
+    <div class="menu">
+      <div class="menu-title">Layout</div>
+      <a class="menu-item button text" href="/documentation/card/">Card</a>
+      <a class="menu-item button text" href="/documentation/columns/">Columns</a>
+      <a class="menu-item button text" href="/documentation/container/">Container</a>
+      <a class="menu-item button text" href="/documentation/dialog/">Dialog</a>
+      <a class="menu-item button text" href="/documentation/divider/">Divider</a>
+      <a class="menu-item button text" href="/documentation/grid/">Grid</a>
+      <a class="menu-item button text" href="/documentation/hero/">Hero</a>
+      <a class="menu-item button text" href="/documentation/stack/">Stack</a>
+    </div>
+    <div class="menu">
+      <div class="menu-title">Navigation</div>
+      <a class="menu-item button text" href="/documentation/dropdown/">Dropdown</a>
+      <a class="menu-item button text" href="/documentation/link/">Link</a>
+      <a class="menu-item button text" href="/documentation/menu/">Menu</a>
+      <a class="menu-item button text" href="/documentation/navbar/">Navbar</a>
+    </div>
+  </div>
+  <div class="column:3/4">
+    <%- body %>
+  </div>
+</div>
+
+</body>
+</html>

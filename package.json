@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run build:library && npm run build:website",
     "build:library": "npm run clean && tsc --build && npx outlinecss build --output ./dist/outline.css --entry null --tokens null",
-    "build:website": "npm run build:library && npx webanvil",
+    "build:website": "npx webanvil",
     "clean": "tsc --build --clean",
     "preprepare": "ts-patch install",
     "prepack": "npm run build"

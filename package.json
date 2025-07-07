@@ -8,7 +8,7 @@
     "outlinecss": "bin/run"
   },
   "scripts": {
-    "serve:website": "npx webanvil serve",
+    "serve:website": "npx webanvil serve --base /outlinecss/",
     "build": "npm run build:library && npm run build:website",
     "build:library": "npm run clean && tsc --build && npx outlinecss build --output ./dist/outline.css --entry null --tokens null",
     "build:website": "npx webanvil",
@@ -34,7 +34,7 @@
     "tslib": "^2.6.3",
     "typescript": "^5.5.4",
     "typescript-transform-paths": "^3.4.11",
-    "webanvil": "^0.0.3"
+    "webanvil": "^0.0.4"
   },
   "author": "Mateusz Pietrzak",
   "license": "MIT",

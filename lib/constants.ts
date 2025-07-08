@@ -1,14 +1,9 @@
 import * as path from "path"
 
 
-const pkg = require("../package.json")
-
 export const directories = {
     get root() {
-        if (process.cwd().includes(pkg.name)) {
-            return process.cwd()
-        }
-        return require.resolve(pkg.name).replace(path.join(pkg.main), "")
+        return path.resolve(__dirname, "..")
     },
     get styles() {
         return path.join(this.root, "./styles")

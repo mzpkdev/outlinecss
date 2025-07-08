@@ -1,7 +1,7 @@
 {
   "name": "outlinecss",
   "description": "A headless, responsive, and composable CSS framework designed for easy customization.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "bin": {

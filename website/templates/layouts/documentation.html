@@ -1,51 +1,91 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <base href="/outlinecss/">
-  <link rel="stylesheet" href="assets/styles.css">
-  <title><%= title %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/outlinecss/">
+    <link rel="stylesheet" href="assets/styles.css">
+    <title><%= title %></title>
 </head>
 <body>
 
 <%- include("navbar") %>
 <div class="container columns">
-  <div class="column:1/4">
-    <div class="menu">
-      <div class="menu-title">Form</div>
-      <a class="menu-item button text" href="documentation/button/">Button</a>
-      <a class="menu-item button text text:line-through" href="documentation/checkbox/">Checkbox</a>
-      <a class="menu-item button text" href="documentation/input/">Input</a>
-      <a class="menu-item button text text:line-through" href="documentation/radio/">Radio</a>
-      <a class="menu-item button text text:line-through" href="documentation/select/">Select</a>
-      <a class="menu-item button text text:line-through" href="documentation/slider/">Slider</a>
-      <a class="menu-item button text text:line-through" href="documentation/textarea/">Textarea</a>
-      <a class="menu-item button text text:line-through" href="documentation/toggle/">Toggle</a>
+    <div class="column:1/5 relative">
+        <div class="sticky top:0 text:sm">
+            <div class="menu">
+                <div class="menu-title">Form</div>
+                <button type="button" class="menu-item button text text:left">
+                    <a href="documentation/button/">Button</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/checkbox/" style="pointer-events: none">Checkbox</a>
+                </button>
+                <button type="button" class="menu-item button text text:left">
+                    <a href="documentation/input/">Input</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/radio/" style="pointer-events: none">Radio</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/select/" style="pointer-events: none">Select</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/slider/" style="pointer-events: none">Slider</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/textarea/" style="pointer-events: none">Textarea</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/toggle/" style="pointer-events: none">Toggle</a>
+                </button>
+            </div>
+            <div class="menu">
+                <div class="menu-title">Layout</div>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/card/" style="pointer-events: none">Card</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/columns/" style="pointer-events: none">Columns</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/container/" style="pointer-events: none">Container</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/dialog/" style="pointer-events: none">Dialog</a>
+                </button>
+                <button type="button" class="menu-item button text text:left">
+                    <a href="documentation/divider/">Divider</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/grid/" style="pointer-events: none">Grid</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/hero/" style="pointer-events: none">Hero</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/stack/" style="pointer-events: none">Stack</a>
+                </button>
+            </div>
+            <div class="menu">
+                <div class="menu-title">Navigation</div>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/dropdown/" style="pointer-events: none">Dropdown</a>
+                </button>
+                <button type="button" class="menu-item button text :disabled text:left">
+                    <a href="documentation/link/" style="pointer-events: none">Link</a>
+                </button>
+                <button type="button" class="menu-item button text text:left">
+                    <a href="documentation/navbar/">Navbar</a>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="menu">
-      <div class="menu-title">Layout</div>
-      <a class="menu-item button text text:line-through" href="documentation/card/">Card</a>
-      <a class="menu-item button text text:line-through" href="documentation/columns/">Columns</a>
-      <a class="menu-item button text text:line-through" href="documentation/container/">Container</a>
-      <a class="menu-item button text text:line-through" href="documentation/dialog/">Dialog</a>
-      <a class="menu-item button text" href="documentation/divider/">Divider</a>
-      <a class="menu-item button text text:line-through" href="documentation/grid/">Grid</a>
-      <a class="menu-item button text text:line-through" href="documentation/hero/">Hero</a>
-      <a class="menu-item button text text:line-through" href="documentation/stack/">Stack</a>
+    <div class="column:4/5">
+        <%- body %>
     </div>
-    <div class="menu">
-      <div class="menu-title">Navigation</div>
-      <a class="menu-item button text text:line-through" href="documentation/dropdown/">Dropdown</a>
-      <a class="menu-item button text text:line-through" href="documentation/link/">Link</a>
-      <a class="menu-item button text" href="documentation/navbar/">Navbar</a>
-    </div>
-  </div>
-  <div class="column:3/4">
-    <%- body %>
-  </div>
 </div>
 
 <script type="application/javascript" src="assets/web-components.js"></script>

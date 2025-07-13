@@ -16,6 +16,7 @@
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
+    width: auto;
     padding: var(--button__spacing-y) var(--button__spacing-x);
     color: var(--button__text-color);
     background: var(--button__background);
@@ -29,17 +30,18 @@
     transition-duration: var(--transition__duration);
     transition-timing-function: var(--transition__easing);
 
-    &:is(a) {
+    &:is(a), & > a {
         text-decoration: none;
+        color: var(--button__text-color);
     }
 
-    &:hover {
+    &:hover, &.\:hover {
         --button__text-color: var(--color__text-50);
         --button__background: var(--color__primary-400);
         --button__border-color: var(--color__primary-400);
     }
 
-    &:focus {
+    &:focus, &.\:focus {
         --button__text-color: var(--color__text-50);
         --button__background: var(--color__primary-400);
         --button__border-color: var(--color__primary-400);
@@ -47,13 +49,13 @@
         outline: none;
     }
 
-    &:active {
+    &:active, &.\:active {
         --button__text-color: var(--color__text-50);
         --button__background: var(--color__primary-500);
         --button__border-color: var(--color__primary-500);
     }
 
-    &:disabled {
+    &:disabled, &.\:disabled {
         --button__text-color: var(--color__primary-100);
         --button__background: transparent;
         --button__border-color: var(--color__primary-100);
@@ -67,25 +69,25 @@
     --button__background: var(--color__primary-400);
     --button__border-color: transparent;
 
-    &:hover {
+    &:hover, &.\:hover {
         --button__text-color: var(--color__text-50);
         --button__background: var(--color__primary-500);
         --button__border-color: var(--color__primary-500);
     }
 
-    &:focus {
+    &:focus, &.\:focus {
         --button__text-color: var(--color__text-50);
         --button__background: var(--color__primary-500);
         --button__border-color: var(--color__primary-500);
     }
 
-    &:active {
+    &:active, &.\:active {
         --button__text-color: var(--color__text-50);
         --button__background: var(--color__primary-600);
         --button__border-color: var(--color__primary-600);
     }
 
-    &:disabled {
+    &:disabled, &.\:disabled {
         --button__text-color: var(--color__primary-50);
         --button__background: var(--color__primary-200);
         --button__border-color: var(--color__primary-200);
@@ -98,25 +100,25 @@
     --button__border-color: transparent;
     --button__shadow: var(--shadow__none);
 
-    &:hover {
+    &:hover, &.\:hover {
         --button__text-color: var(--color__text-700);
         --button__background: var(--color__grey-100);
         --button__border-color: var(--color__grey-100);
     }
 
-    &:focus {
+    &:focus, &.\:focus {
         --button__text-color: var(--color__text-700);
         --button__background: var(--color__grey-100);
         --button__border-color: var(--color__grey-100);
     }
 
-    &:active {
+    &:active, &.\:active {
         --button__text-color: var(--color__text-700);
         --button__background: var(--color__grey-200);
         --button__border-color: var(--color__grey-200);
     }
 
-    &:disabled {
+    &:disabled, &.\:disabled {
         --button__text-color: var(--color__text-300);
         --button__background: transparent;
         --button__border-color: transparent;

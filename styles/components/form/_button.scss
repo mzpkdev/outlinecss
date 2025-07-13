@@ -1,11 +1,12 @@
 .button {
-    --ui__button__spacing-x: var(--spacing__md);
-    --ui__button__spacing-y: var(--spacing__xs);
-    --ui__button__text-color: var(--color__current);
-    --ui__button__background: transparent;
-    --ui__button__border-color: var(--color__current);
-    --ui__button__roundness: var(--roundness);
-    --ui__button__shadow: var(--shadow__none);
+    --button__spacing-x: var(--spacing__md);
+    --button__spacing-y: var(--spacing__xs);
+    --button__text-color: var(--color__text-700);
+    --button__background: transparent;
+    --button__border-color: var(--color__primary-400);
+    --button__roundness: var(--roundness);
+    --button__thickness: var(--thickness);
+    --button__shadow: var(--shadow);
 
     box-sizing: border-box;
     display: flex;
@@ -15,24 +16,109 @@
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
-    padding: var(--ui__button__spacing-y) var(--ui__button__spacing-x);
-    color: var(--ui__button__text-color);
-    background: var(--ui__button__background);
-    border-color: var(--ui__button__border-color);
-    border-width: 1px;
-    border-style: none;
-    border-radius: var(--ui__button__roundness);
-    box-shadow: var(--ui__button__shadow);
+    padding: var(--button__spacing-y) var(--button__spacing-x);
+    color: var(--button__text-color);
+    background: var(--button__background);
+    border-color: var(--button__border-color);
+    border-width: var(--button__thickness);
+    border-style: solid;
+    border-radius: var(--button__roundness);
+    box-shadow: var(--button__shadow);
     cursor: pointer;
     transition-property: color, background, background-color, border-color, box-shadow;
     transition-duration: var(--transition__duration);
     transition-timing-function: var(--transition__easing);
 
-    &:focus {
-        outline-color: var(--color__current);
-    }
-
     &:is(a) {
         text-decoration: none;
+    }
+
+    &:hover {
+        --button__text-color: var(--color__text-50);
+        --button__background: var(--color__primary-400);
+        --button__border-color: var(--color__primary-400);
+    }
+
+    &:focus {
+        --button__text-color: var(--color__text-50);
+        --button__background: var(--color__primary-400);
+        --button__border-color: var(--color__primary-400);
+
+        outline: none;
+    }
+
+    &:active {
+        --button__text-color: var(--color__text-50);
+        --button__background: var(--color__primary-500);
+        --button__border-color: var(--color__primary-500);
+    }
+
+    &:disabled {
+        --button__text-color: var(--color__primary-100);
+        --button__background: transparent;
+        --button__border-color: var(--color__primary-100);
+
+        cursor: not-allowed;
+    }
+}
+
+.button.cta {
+    --button__text-color: var(--color__text-50);
+    --button__background: var(--color__primary-400);
+    --button__border-color: transparent;
+
+    &:hover {
+        --button__text-color: var(--color__text-50);
+        --button__background: var(--color__primary-500);
+        --button__border-color: var(--color__primary-500);
+    }
+
+    &:focus {
+        --button__text-color: var(--color__text-50);
+        --button__background: var(--color__primary-500);
+        --button__border-color: var(--color__primary-500);
+    }
+
+    &:active {
+        --button__text-color: var(--color__text-50);
+        --button__background: var(--color__primary-600);
+        --button__border-color: var(--color__primary-600);
+    }
+
+    &:disabled {
+        --button__text-color: var(--color__primary-50);
+        --button__background: var(--color__primary-200);
+        --button__border-color: var(--color__primary-200);
+    }
+}
+
+.button.text {
+    --button__text-color: var(--color__text-700);
+    --button__background: trasparent;
+    --button__border-color: transparent;
+    --button__shadow: var(--shadow__none);
+
+    &:hover {
+        --button__text-color: var(--color__text-700);
+        --button__background: var(--color__grey-100);
+        --button__border-color: var(--color__grey-100);
+    }
+
+    &:focus {
+        --button__text-color: var(--color__text-700);
+        --button__background: var(--color__grey-100);
+        --button__border-color: var(--color__grey-100);
+    }
+
+    &:active {
+        --button__text-color: var(--color__text-700);
+        --button__background: var(--color__grey-200);
+        --button__border-color: var(--color__grey-200);
+    }
+
+    &:disabled {
+        --button__text-color: var(--color__text-300);
+        --button__background: transparent;
+        --button__border-color: transparent;
     }
 }

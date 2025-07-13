@@ -1,0 +1,27 @@
+.menu {
+  --menu__spacing-x: var(--spacing__md);
+  --menu__spacing-y: var(--spacing__xs);
+
+  display: flex;
+  flex-direction: column;
+
+  &:not(:first-child) .menu-title {
+    margin-top: 1rem;
+  }
+
+  & > .menu {
+    margin-left: 1rem;
+  }
+
+  & .menu-title, & .menu-item {
+    padding: var(--menu__spacing-y) var(--menu__spacing-x);
+  }
+
+  & .menu-title {
+    font-weight: bold;
+  }
+
+  & .menu-item {
+
+  }
+}

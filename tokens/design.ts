@@ -1,14 +1,18 @@
 import color from "./color"
 import spacing from "./spacing"
 import radius from "./roundness"
+import shadow from "./shadow"
 
 
 const design = {
   "roundness": radius["xs"],
+  "thickness": "1px",
+  "shadow": shadow["level-1"],
   "color": {
-    "primary": color["teal"],
-    "text": color["slate"],
-    "background": color["white"]
+    "primary": color["cyan"],
+    "negative": color["red"],
+    "text": color["zinc"],
+    "background": color["zinc"]["50"]
   },
   "spacing": {
     "narrow": spacing["sm"],

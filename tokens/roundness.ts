@@ -1,4 +1,5 @@
 const roundness = {
+  "none": "0",
   "2xs": "0.125rem",
   "xs": "0.25rem",
   "sm": "0.375rem",

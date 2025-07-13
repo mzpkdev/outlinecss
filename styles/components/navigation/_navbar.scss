@@ -1,31 +1,17 @@
 .navbar {
-  --ui__navbar__spacing-x: var(--spacing__md);
-  --ui__navbar__spacing-y: var(--spacing__xs);
-  --ui__navbar__background: var(--color__background);
-  --ui__navbar__shadow: var(--shadow__level-3);
+  --navbar__spacing-x: var(--spacing__md);
+  --navbar__spacing-y: var(--spacing__xs);
+  --navbar__background: var(--color__background);
+  --navbar__shadow: var(--shadow__level-3);
 
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  background: var(--ui__navbar__background);
-  padding: var(--ui__navbar__spacing-y) var(--ui__navbar__spacing-x);
-
-  & .navbar-body {
-    position: relative;
-    display: grid;
-    grid-template-rows: 1fr;
-    //height: max-content;
-    transition-property: opacity, grid-template-rows;
-    transition-duration: var(--transition__duration);
-    transition-timing-function: var(--transition__easing);
-
-    @media only screen and (max-width: 768px) {
-      grid-template-rows: 0fr;
-      width: 100%;
-    }
-  }
+  width: 100%;
+  padding: var(--navbar__spacing-y) var(--navbar__spacing-x);
+  background: var(--navbar__background);
 
   & .navbar-logo {
     flex: 1 1 auto;
@@ -34,23 +20,15 @@
       object-fit: cover;
       width: min-content;
       height: 100%;
-      margin-top: calc(0px - var(--ui__navbar__spacing-y));
-      transform: translate(0, var(--ui__navbar__spacing-y) );
+      margin-top: calc(0px - var(--navbar__spacing-y));
+      transform: translate(0, var(--navbar__spacing-y) );
     }
-  }
-
-  & a.navbar-item {
-    color: inherit;
   }
 
   & .navbar-toggle {
     position: relative;
     display: none;
     width: fit-content;
-
-    @media only screen and (max-width: 768px) {
-      display: block;
-    }
 
     & > input[type="checkbox"] {
       pointer-events: auto;
@@ -63,36 +41,58 @@
       cursor: pointer;
       z-index: 99999;
     }
+
+    &:has(> input[type="checkbox"]:checked) ~ .navbar-body {
+      grid-template-rows: 1fr;
+      pointer-events: auto;
+    }
   }
 
-  .navbar-toggle:has(> input[type="checkbox"]:checked) ~ .navbar-body {
-    //opacity: 1;
+  & .navbar-body {
+    position: relative;
+    display: grid;
     grid-template-rows: 1fr;
-    pointer-events: auto;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    transition-property: opacity, grid-template-rows;
+    transition-duration: var(--transition__duration);
+    transition-timing-function: var(--transition__easing);
+
+    @media only screen and (max-width: 768px) {
+      grid-template-rows: 0fr;
+      width: 100%;
+    }
   }
 
   .navbar-content {
     flex: 1 1 auto;
-    justify-self: flex-end;
     display: flex;
+    gap: 0.5rem;
+    justify-self: flex-end;
     justify-content: space-around;
-    background: var(--ui__navbar__background);
+    align-items: center;
+    width: 100%;
+    background: var(--navbar__background);
     z-index: var(--z-index__30);
+  }
 
-    @media only screen and (max-width: 768px) {
-      //pointer-events: none;
-      //flex: 0 0 100%;
-      //position: absolute;
-      //right: 0;
-      //bottom: 0;
-      //left: 0;
+  & .navbar-item {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+    padding: var(--navbar__spacing-y) var(--navbar__spacing-x);
+  }
+
+  @media only screen and (max-width: 768px) {
+    & .navbar-toggle {
+      display: block;
+    }
+
+    .navbar-content {
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      //box-shadow: var(--ui__navbar__shadow);
-      //opacity: 0;
-      //transform: translate(0, 0);
-      //z-index: var(--z-index__-50);
     }
   }
 }

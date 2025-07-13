@@ -1,12 +1,12 @@
 .input {
-  --ui__input__spacing-x: var(--spacing__md);
-  --ui__input__spacing-y: var(--spacing__xs);
-  --ui__input__text-color: var(--color__current);
-  --ui__input__background: transparent;
-  --ui__input__border-color: --color__current;
-  --ui__input__roundness: var(--roundness);
-  --ui__input__shadow: var(--shadow__none);
-  --ui__input__grip-color: var(--color__text-400);
+  --input__spacing-x: var(--spacing__md);
+  --input__spacing-y: var(--spacing__xs);
+  --input__text-color: var(--color__text-700);
+  --input__background: var(--color__background);
+  --input__border-color: var(--color__text-200);
+  --input__roundness: var(--roundness);
+  --input__thickness: var(--thickness);
+  --input__shadow: var(--shadow);
 
   box-sizing: border-box;
   position: relative;
@@ -14,18 +14,18 @@
   min-width: 192px;
   max-width: fit-content;
   height: fit-content;
-  color: var(--ui__input__text-color);
-  background: var(--ui__input__background);
-  border-color: var(--ui__input__border-color);
-  border-width: 1px;
+  color: var(--input__text-color);
+  background: var(--input__background);
+  border-color: var(--input__border-color);
+  border-width: var(--input__thickness);
   border-style: solid;
-  border-radius: var(--ui__input__roundness);
-  box-shadow: var(--ui__input__shadow);
-  transition-property: border-color;
-  transition-duration: var(--transition--duration);
-  transition-timing-function: var(--transition--easing);
+  border-radius: var(--input__roundness);
+  box-shadow: var(--input__shadow);
+  transition-property: color, border-color;
+  transition-duration: var(--transition__duration);
+  transition-timing-function: var(--transition__easing);
 
-  & > input, & > select {
+  & > input {
     line-height: 1;
     box-sizing: border-box;
     position: relative;
@@ -34,8 +34,8 @@
     width: 0;
     min-width: 100%;
     margin: 0;
-    padding: var(--ui__input__spacing-y) var(--ui__input__spacing-x);
-    color: var(--ui__input__text-color);
+    padding: var(--input__spacing-y) var(--input__spacing-x);
+    color: var(--input__text-color);
     background: transparent;
     border: none;
 
@@ -44,118 +44,82 @@
       font-weight: inherit;
       font-size: 100%;
       color: var(--color__text-400);
-    }
-
-    &:focus {
-      outline-color: var(--color__current);
-    }
-  }
-
-  & > textarea, & > div[contenteditable] {
-    flex: 1 1 auto;
-    display: block;
-    width: 0;
-    min-height: 64px;
-    margin: 0;
-    padding: var(--ui__input__spacing-y) var(--ui__input__spacing-x);
-  }
-
-
-  & > textarea {
-    resize: none;
-    font-family: inherit;
-    font-size: inherit;
-    height: auto;
-    max-height: 256px;
-    color: inherit;
-    background: none;
-    border: none;
-
-    &::-webkit-input-placeholder {
-      font-family: inherit;
-      font-weight: inherit;
-      font-size: 100%;
-      color: var(--color__text-400);
-    }
-
-    &:focus {
-      outline-color: var(--color__current);
+      transition-property: color;
+      transition-duration: var(--transition__duration);
+      transition-timing-function: var(--transition__easing);
     }
   }
 
-  & > div[contenteditable] {
-    &:focus {
-      outline-color: var(--color__current);
-    }
+  &:has(input:disabled), &.\:disabled {
+    --input__text-color: var(--color__text-300);
+    --input__background: var(--color__text-100);
+    --input__border-color: var(--color__text-200);
 
-    &:empty:before {
-      content: attr(placeholder);
-      font-family: inherit;
-      font-weight: inherit;
-      font-size: 100%;
-      color: var(--color__text-400);
+    cursor: not-allowed;
+
+    & > input {
+      pointer-events: none;
+
+      &::-webkit-input-placeholder {
+        color: var(--color__text-300);
+      }
     }
   }
 
-  & > select {
-    appearance: none;
+  &:has(input:focus), &.\:focus {
+    --input__border-color: var(--color__primary-400);
 
-    & > option {
-      font-size: 100%;
-      color: var(--color__current);
-      background: var(--ui__input__background);
+    & > label {
+      color: var(--color__primary-400);
+    }
+
+    & > input {
+      outline: none;
+    }
+
+    & > input::-webkit-input-placeholder {
+      color: var(--color__text-500);
+    }
+  }
+
+  &:has(input:invalid), &.\:invalid {
+    --input__border-color: var(--color__negative-400);
+
+    & > label {
+      color: var(--color__negative-400);
     }
   }
 
   & > label {
-    font-size: 75%;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
     position: absolute;
-    top: -1rem;
-    left: 1.25rem;
-  }
+    top: 0;
+    left: var(--input__spacing-x);
+    height: 100%;
+    color: var(--color__text-400);
+    transition-property: font-size, padding, color, transform;
+    transition-duration: var(--transition__duration);
+    transition-timing-function: var(--transition__easing);
 
-  & > .grip:has(+ textarea), & > textarea + .grip {
-    &::before, &::after {
+    &::before {
       content: "";
-      display: block;
       position: absolute;
-      right: 0;
+      top: 0;
+      left: 0;
       bottom: 0;
-      width: 12px;
-      height: 12px;
-      background-color: var(--color__background);
-      pointer-events: none;
-    }
-
-    &::after {
-      background-color: var(--ui__input__grip-color);
-      mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWdyaXAtaG9yaXpvbnRhbCI+PGNpcmNsZSBjeD0iMTIiIGN5PSI5IiByPSIxIi8+PGNpcmNsZSBjeD0iMTkiIGN5PSI5IiByPSIxIi8+PGNpcmNsZSBjeD0iNSIgY3k9IjkiIHI9IjEiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjE1IiByPSIxIi8+PGNpcmNsZSBjeD0iMTkiIGN5PSIxNSIgcj0iMSIvPjxjaXJjbGUgY3g9IjUiIGN5PSIxNSIgcj0iMSIvPjwvc3ZnPg==") no-repeat 50% 50%;
-      mask-size: cover;
+      right: 0;
+      background: var(--input__background);
+      z-index: var(--z-index__-10);
     }
   }
 
-  & > .grip + textarea, textarea:has(+.grip) {
-    resize: vertical;
-  }
-
-  &:has(> select)::before {
-    content: "";
-    display: block;
-    position: absolute;
-    right: var(--ui__input__spacing-x);
-    bottom: 50%;
-    width: 1em;
-    height: 1em;
-    background-color: var(--ui__input__grip-color);
-    mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZXZyb24tZG93biI+PHBhdGggZD0ibTYgOSA2IDYgNi02Ii8+PC9zdmc+") no-repeat 50% 50%;
-    mask-size: cover;
-    transition-property: transform, color;
-    transition-duration: var(--transition--duration);
-    transition-timing-function: var(--transition--easing);
-    transform: translateY(50%) rotate(0);
-  }
-
-  &:has(> select:focus)::before {
-    transform: translateY(50%) rotate(180deg);
+  &:has(input:not(:placeholder-shown)) > label, &:has(input:focus) > label {
+    font-size: 75%;
+    height: auto;
+    padding: 0 0.5em;
+    transform: translate3d(0, -50%, 0);
+    z-index: var(--z-index__10);
   }
 }

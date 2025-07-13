@@ -6,11 +6,16 @@ website-dist/
 
 .cache
 .tsbuildinfo
-**/*.js
-**/*.mjs
-**/*.cjs
-**/*.map
-**/*.d.ts
+lib/**/*.js
+lib/**/*.mjs
+lib/**/*.cjs
+lib/**/*.map
+lib/**/*.d.ts
+tokens/**/*.js
+tokens/**/*.mjs
+tokens/**/*.cjs
+tokens/**/*.map
+tokens/**/*.d.ts
 *.tsbuildinfo
 
 !buildscript

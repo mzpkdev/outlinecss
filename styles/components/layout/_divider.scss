@@ -1,17 +1,29 @@
 .hdivider, .vdivider {
-  --ui__divider__thickness: 1px;
-  --ui__divider__background: var(--color__current);
+  --divider__background: var(--color__text-200);
+  --divider__thickness: 2px;
+  --divider__spacing: var(--spacing__xl);
 
   box-sizing: border-box;
-  background: var(--ui__divider__background);
+  overflow: hidden;
+  margin: 0;
+  background: var(--divider__background);
+  border-style: solid;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
 }
 
 .hdivider {
-  width: 100%;
-  height: var(--ui__divider__thickness);
+  flex: 1 0 100%;
+  display: block;
+  width: auto;
+  height: 2px;
+  margin: var(--divider__spacing) 1.25em;
 }
 
 .vdivider {
-  width: var(--ui__divider__thickness);
-  height: 100%;
+  display: inline-block;
+  height: auto;
+  width: 2px;
 }

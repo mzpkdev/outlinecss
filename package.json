@@ -11,6 +11,7 @@
     "serve:website": "npx webanvil serve --base /outlinecss/",
     "build": "npm run build:library && npm run build:website",
     "build:library": "npm run clean && tsc --build && npx outlinecss build --output ./dist/outline.css --entry null --tokens null",
+    "build:short": "npx outlinecss build --output ./dist/outline.css --entry null --tokens null",
     "build:website": "npx webanvil",
     "clean": "tsc --build --clean",
     "preprepare": "ts-patch install",
@@ -34,7 +35,7 @@
     "tslib": "^2.6.3",
     "typescript": "^5.5.4",
     "typescript-transform-paths": "^3.4.11",
-    "webanvil": "^0.0.4"
+    "webanvil": "^0.0.6"
   },
   "author": "Mateusz Pietrzak",
   "license": "MIT",

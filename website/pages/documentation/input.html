@@ -1,0 +1,88 @@
+---
+layout: documentation
+title: Input
+---
+
+<main class="container">
+    <h1>Input</h1>
+    <p>An input is a field used to elicit a response from a user</p>
+    <hr class="hdivider">
+
+    <h2>Variants</h2>
+    <p>Lorem ipsum</p>
+    <br>
+
+    <h3>Basic Input</h3>
+    <p>A basic version</p>
+    <html-preview>
+        <div class="input">
+            <input type="email" placeholder="Enter your email">
+        </div>
+    </html-preview>
+
+    <h3>Label</h3>
+    <p>A labeled version</p>
+    <html-preview>
+        <div class="hstack gap:sm items:center">
+            <label class="text:bold" for="email">Email:</label>
+            <div class="input">
+                <input type="email" id="email" placeholder="Enter your email"/>
+            </div>
+        </div>
+    </html-preview>
+
+    <h3>Floating Label</h3>
+    <p>A floating labeled version</p>
+    <html-preview>
+        <div class="input">
+            <label>Email</label>
+            <input type="email">
+        </div>
+    </html-preview>
+
+    <h3>Floating Placeholder</h3>
+    <p>A floating labeled version</p>
+    <html-preview>
+        <div class="input">
+            <label>Email</label>
+            <input type="email" placeholder>
+        </div>
+    </html-preview>
+
+    <h2>Modifiers</h2>
+    <p>Lorem ipsum</p>
+    <br>
+
+    <h2>States</h2>
+    <p>Lorem ipsum</p>
+    <br>
+
+    <h3>Disabled</h3>
+    <p>A basic version</p>
+    <html-preview>
+        <div class="input">
+            <input type="email" placeholder="Enter your email" disabled>
+        </div>
+
+        <div class="input :disabled">
+            <input type="email" placeholder="Enter your email">
+        </div>
+    </html-preview>
+
+    <h3>Focused</h3>
+    <p>A basic version</p>
+    <html-preview>
+        <div class="input :focus">
+            <input type="email" placeholder="Enter your email">
+        </div>
+    </html-preview>
+
+    <h3>Invalid</h3>
+    <p>A basic version</p>
+    <html-preview>
+        <div class="input :invalid">
+            <input type="email" placeholder="Enter your email">
+        </div>
+    </html-preview>
+</main>
+
